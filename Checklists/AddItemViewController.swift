@@ -8,7 +8,8 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,11 @@ class AddItemViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
-
-    
+    override func tableView(_ tableView: UITableView,
+                               willSelectRowAt indexPath: IndexPath)
+        -> IndexPath? {
+            return nil
+    }
     
     
     @IBAction func cancel() {
@@ -44,8 +48,15 @@ class AddItemViewController: UITableViewController {
     }
     
     @IBAction func done() {
-        navigationController?.popViewController(animated: true)
+        print("Contents of the text field: \(textField.text)")
+       navigationController?.popViewController(animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

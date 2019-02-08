@@ -77,10 +77,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-7o-hfQ">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the item" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-7o-hfQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                                     <nil key="textColor"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="AfM-g4-wio" eventType="editingDidEndOnExit" id="uqk-GP-THP"/>
+                                                        <outlet property="delegate" destination="AfM-g4-wio" id="X3P-US-VWM"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
