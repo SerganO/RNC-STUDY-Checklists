@@ -18,6 +18,7 @@ class ChecklistViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view, typically from a nib.
         let item1 = ChecklistItem()
         item1.text = "Walk the dog"
@@ -50,7 +51,7 @@ class ChecklistViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView,
                                numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView,
@@ -91,6 +92,20 @@ class ChecklistViewController: UITableViewController {
                           with item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    @IBAction func addItem()
+    {
+        let newRowIndex = items.count
+        
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
     }
     
 }
