@@ -40,21 +40,21 @@ class ChecklistViewController: UITableViewController,ItemDetailViewControllerDel
         saveChecklistItems()
     }
    
-    let row0item = ChecklistItem()
-    let row1item = ChecklistItem()
-    let row2item = ChecklistItem()
-    let row3item = ChecklistItem()
-    let row4item = ChecklistItem()
+
     var items = [ChecklistItem]()
+    var checklist:Checklist!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+       
         // Do any additional setup after loading the view, typically from a nib.
       loadChecklistItems()
         
         print("Documents folder is \(documentsDirectory())")
         print("Data file path is \(dataFilePath())")
+        
+        
+        title = checklist.name
         
     }
     
