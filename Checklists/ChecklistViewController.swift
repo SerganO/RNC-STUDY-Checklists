@@ -10,12 +10,12 @@ import UIKit
 
 
 
-class ChecklistViewController: UITableViewController,AddItemViewControllerDelegate {
+class ChecklistViewController: UITableViewController,ItemDetailViewControllerDelegate {
     
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func ItemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)    }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    func ItemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         
@@ -27,8 +27,8 @@ class ChecklistViewController: UITableViewController,AddItemViewControllerDelega
         saveChecklistItems()
         
     }
-    func addItemViewController(
-        _ controller: AddItemViewController,
+    func ItemDetailViewController(
+        _ controller: ItemDetailViewController,
         didFinishEditing item: ChecklistItem) {
         if let index = items.index(of: item) {
             let indexPath = IndexPath(row: index, section: 0)
@@ -91,12 +91,12 @@ class ChecklistViewController: UITableViewController,AddItemViewControllerDelega
     {
         if seque.identifier == "AddItem"
         {
-         let controller = seque.destination as! AddItemViewController
-            controller.delegate = self
+         let controller = seque.destination as! ItemDetailViewController
+            controller.delegate = self as! ItemDetailViewControllerDelegate
         } else if seque.identifier == "EditItem"
         {
-            let controller = seque.destination as! AddItemViewController
-            controller.delegate = self
+            let controller = seque.destination as! ItemDetailViewController
+            controller.delegate = self as! ItemDetailViewControllerDelegate
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             {
                 controller.itemToEdit = items[indexPath.row]

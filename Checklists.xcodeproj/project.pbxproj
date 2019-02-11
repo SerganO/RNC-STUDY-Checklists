@@ -15,7 +15,7 @@
 		EC62AB00220D930A00E06609 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AAFF220D930A00E06609 /* ChecklistsTests.swift */; };
 		EC62AB0B220D930A00E06609 /* ChecklistsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AB0A220D930A00E06609 /* ChecklistsUITests.swift */; };
 		EC62AB19220DA93F00E06609 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AB18220DA93F00E06609 /* ChecklistItem.swift */; };
-		EC62AB1B220DB96200E06609 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AB1A220DB96200E06609 /* AddItemViewController.swift */; };
+		EC62AB1B220DB96200E06609 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AB1A220DB96200E06609 /* ItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		EC62AB0A220D930A00E06609 /* ChecklistsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsUITests.swift; sourceTree = "<group>"; };
 		EC62AB0C220D930A00E06609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC62AB18220DA93F00E06609 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		EC62AB1A220DB96200E06609 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		EC62AB1A220DB96200E06609 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 				EC62AAEA220D930700E06609 /* AppDelegate.swift */,
 				EC62AAEC220D930700E06609 /* ChecklistViewController.swift */,
 				EC62AAEE220D930700E06609 /* Main.storyboard */,
-				EC62AB1A220DB96200E06609 /* AddItemViewController.swift */,
+				EC62AB1A220DB96200E06609 /* ItemDetailViewController.swift */,
 				EC62AAF1220D930A00E06609 /* Assets.xcassets */,
 				EC62AAF3220D930A00E06609 /* LaunchScreen.storyboard */,
 				EC62AAF6220D930A00E06609 /* Info.plist */,
@@ -263,7 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC62AAED220D930700E06609 /* ChecklistViewController.swift in Sources */,
-				EC62AB1B220DB96200E06609 /* AddItemViewController.swift in Sources */,
+				EC62AB1B220DB96200E06609 /* ItemDetailViewController.swift in Sources */,
 				EC62AB19220DA93F00E06609 /* ChecklistItem.swift in Sources */,
 				EC62AAEB220D930700E06609 /* AppDelegate.swift in Sources */,
 			);
