@@ -50,7 +50,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="G4I-IL-7aA">
                             <connections>
                                 <action selector="addItem" destination="hsv-z1-rNG" id="ND1-hh-fl1"/>
-                                <segue destination="AfM-g4-wio" kind="show" id="vgY-DV-UL6"/>
+                                <segue destination="AfM-g4-wio" kind="show" identifier="AddItem" id="vgY-DV-UL6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -117,6 +117,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButton" destination="AWW-93-25D" id="rBM-gd-bWS"/>
                         <outlet property="textField" destination="jqN-7o-hfQ" id="YYI-zP-ihc"/>
                     </connections>
                 </tableViewController>

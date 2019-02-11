@@ -19,7 +19,7 @@ protocol AddItemViewControllerDelegate: class {
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
-    weak var delegate: AddItemViewControllerDelegate?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,8 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Table view data source
 
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    weak var delegate: AddItemViewControllerDelegate?
     
     
     
@@ -70,7 +72,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         item.text = textField.text!
         
         delegate?.addItemViewController(self, didFinishAdding: item)
-        
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,7 +98,6 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = false
         return true
     }
-    
     
     
     

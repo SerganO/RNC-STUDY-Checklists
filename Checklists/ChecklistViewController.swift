@@ -10,7 +10,15 @@ import UIKit
 
 
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController,AddItemViewControllerDelegate {
+    
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+        navigationController?.popViewController(animated: true)    }
+    
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     
    
     let row0item = ChecklistItem()
@@ -58,6 +66,16 @@ class ChecklistViewController: UITableViewController {
                                numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
+    
+    override func prepare(for seque: UIStoryboardSegue,sender:Any?)
+    {
+        if seque.identifier == "AddItem"
+        {
+         let controller = seque.destination as! AddItemViewController
+            controller.delegate = self
+        }
+    }
+    
     
     override func tableView(_ tableView: UITableView,
                                cellForRowAt indexPath: IndexPath)
