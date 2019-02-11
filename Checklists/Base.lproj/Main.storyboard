@@ -18,15 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="gjL-cv-9Md">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="gjL-cv-9Md">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gjL-cv-9Md" id="m03-C8-mG9">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="252" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✔️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgj-Dw-8JZ">
+                                            <rect key="frame" x="16" y="6" width="26" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOe-G4-RIN">
-                                            <rect key="frame" x="16" y="11" width="236" height="22"/>
+                                            <rect key="frame" x="46" y="11" width="178" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -34,11 +41,15 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="NOe-G4-RIN" secondAttribute="trailing" constant="20" id="5mE-TX-UsJ"/>
-                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leadingMargin" id="7KC-7b-Vn8"/>
+                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leadingMargin" constant="30" id="7KC-7b-Vn8"/>
                                         <constraint firstItem="NOe-G4-RIN" firstAttribute="top" secondItem="m03-C8-mG9" secondAttribute="topMargin" id="M9z-Ra-ZPh"/>
                                         <constraint firstItem="NOe-G4-RIN" firstAttribute="bottom" secondItem="m03-C8-mG9" secondAttribute="bottomMargin" id="eYg-Ml-MQ0"/>
+                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leadingMargin" constant="30" id="vLS-Wv-G91"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="AfM-g4-wio" kind="show" identifier="EditItem" trigger="accessoryAction" id="fKq-tv-Npu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w87-Y7-9LR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="533" y="118"/>
+            <point key="canvasLocation" x="532.5" y="117.25352112676056"/>
         </scene>
         <!--Add Item-->
         <scene sceneID="81I-Pz-h6E">
@@ -144,4 +155,7 @@
             <point key="canvasLocation" x="-191.25" y="118.30985915492958"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fKq-tv-Npu"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,9 @@ protocol AddItemViewControllerDelegate: class {
     func addItemViewController(
         _ controller: AddItemViewController,
         didFinishAdding item: ChecklistItem)
+    func addItemViewController(
+        _ controller: AddItemViewController,
+        didFinishEditing item: ChecklistItem)
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
@@ -25,7 +28,12 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         
-        
+        if let item = itemToEdit
+        {
+            title = "Edit Item"
+            textField.text = item.text
+            doneBarButton.isEnabled = true
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -41,7 +49,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     weak var delegate: AddItemViewControllerDelegate?
     
-    
+    var itemToEdit: ChecklistItem?
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -67,11 +75,18 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
       //  print("Contents of the text field: \(textField.text)")
       // navigationController?.popViewController(animated: true)
-        
-        let item = ChecklistItem()
-        item.text = textField.text!
-        
-        delegate?.addItemViewController(self, didFinishAdding: item)
+        if let item = itemToEdit
+        {
+            item.text = textField.text!
+            delegate?.addItemViewController(self, didFinishEditing: item)
+        }
+        else
+        {
+            let item = ChecklistItem()
+            item.text = textField.text!
+            delegate?.addItemViewController(self, didFinishAdding: item)
+        }
+       
        
     }
     
