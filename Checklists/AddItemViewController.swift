@@ -8,9 +8,19 @@
 
 import UIKit
 
+
+protocol AddItemViewControllerDelegate: class {
+    func addItemViewControllerDidCancel(
+        _ controller: AddItemViewController)
+    func addItemViewController(
+        _ controller: AddItemViewController,
+        didFinishAdding item: ChecklistItem)
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
-
+    weak var delegate: AddItemViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
@@ -27,6 +37,10 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     // MARK: - Table view data source
 
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -44,18 +58,54 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     
     @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
+       // navigationController?.popViewController(animated: true)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        print("Contents of the text field: \(textField.text)")
-       navigationController?.popViewController(animated: true)
+      //  print("Contents of the text field: \(textField.text)")
+      // navigationController?.popViewController(animated: true)
+        
+        let item = ChecklistItem()
+        item.text = textField.text!
+        
+        delegate?.addItemViewController(self, didFinishAdding: item)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
     }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let oldText = textField.text!
+        let stringRange = Range(range, in:oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange,
+                                                  with: string)
+        
+        doneBarButton.isEnabled = !newText.isEmpty
+        
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

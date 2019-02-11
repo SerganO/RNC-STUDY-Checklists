@@ -77,7 +77,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the item" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-7o-hfQ">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of the item" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jqN-7o-hfQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -110,7 +110,7 @@
                                 <action selector="cancel" destination="AfM-g4-wio" id="IKa-ie-s2X"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="AWW-93-25D">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="AWW-93-25D">
                             <connections>
                                 <action selector="done" destination="AfM-g4-wio" id="RdT-ur-RpX"/>
                             </connections>
