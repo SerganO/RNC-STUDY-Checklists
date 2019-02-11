@@ -23,6 +23,9 @@ class ChecklistViewController: UITableViewController,AddItemViewControllerDelega
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         navigationController?.popViewController(animated: true)
+        
+        saveChecklistItems()
+        
     }
     func addItemViewController(
         _ controller: AddItemViewController,
@@ -69,7 +72,9 @@ class ChecklistViewController: UITableViewController,AddItemViewControllerDelega
         item5.text = "Eat ice cream"
         items.append(item5)
         
-       
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -147,12 +152,40 @@ class ChecklistViewController: UITableViewController,AddItemViewControllerDelega
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle,
         forRowAt indexPath: IndexPath) {
-        // 1
         items.remove(at: indexPath.row)
-        
-        // 2
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    
+    
+    //File
+    func documentsDirectory()->URL
+    {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath()->URL
+    {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    func saveChecklistItems() {
+        // 1
+        let encoder = PropertyListEncoder()
+        // 2
+        do {
+            // 3
+            let data = try encoder.encode(items)
+            // 4
+            try data.write(to: dataFilePath(),
+                           options: Data.WritingOptions.atomic)
+            // 5
+        } catch {
+            // 6
+            print("Error encoding item array: \(error.localizedDescription)")
+        }
     }
     
 }
