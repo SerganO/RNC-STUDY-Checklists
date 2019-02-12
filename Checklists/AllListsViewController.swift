@@ -61,8 +61,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     //Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: cellIdentifier)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,8 +70,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         navigationController?.delegate = self
         
         let index = dataModel.indexOfSelectedChecklist
-        if index >= 0 && index < dataModel.lists.count
-        {
+        if index >= 0 && index < dataModel.lists.count{
             let checklist = dataModel.lists[index]
             performSegue(withIdentifier: "ShowChecklist",
                          sender: checklist)
@@ -108,17 +106,22 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     {
         
         
-        /*let cell = tableView.dequeueReusableCell(
-         withIdentifier: cellIdentifier, for: indexPath)
-         cell.textLabel!.text = "List \(indexPath.row)"
-         return cell*/
-        
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellIdentifier, for: indexPath)
+        let cell: UITableViewCell!
+        if let c = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = c
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+       
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
-        
+        let count = checklist.countUncheckedItems()
+        if checklist.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        } else {
+            cell.detailTextLabel!.text = count == 0 ? "All Done" : "\(count) Remaining"
+        }
         return cell
     }
     
@@ -153,6 +156,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         navigationController?.pushViewController(controller,
                                                  animated: true)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
 }
