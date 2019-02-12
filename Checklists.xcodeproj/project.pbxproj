@@ -10,6 +10,7 @@
 		EC5E904E2212C3FD001A4CDA /* AllListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E904D2212C3FD001A4CDA /* AllListsViewController.swift */; };
 		EC5E90502212D3FC001A4CDA /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E904F2212D3FC001A4CDA /* ListDetailViewController.swift */; };
 		EC5E90522212EE4E001A4CDA /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E90512212EE4E001A4CDA /* DataModel.swift */; };
+		EC5E905422130D44001A4CDA /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5E905322130D44001A4CDA /* IconPickerViewController.swift */; };
 		EC62AAEB220D930700E06609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AAEA220D930700E06609 /* AppDelegate.swift */; };
 		EC62AAED220D930700E06609 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC62AAEC220D930700E06609 /* ChecklistViewController.swift */; };
 		EC62AAF0220D930700E06609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC62AAEE220D930700E06609 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		EC5E904D2212C3FD001A4CDA /* AllListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		EC5E904F2212D3FC001A4CDA /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListDetailViewController.swift; path = ../ListDetailViewController.swift; sourceTree = "<group>"; };
 		EC5E90512212EE4E001A4CDA /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		EC5E905322130D44001A4CDA /* IconPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
 		EC62AAE7220D930700E06609 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC62AAEA220D930700E06609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC62AAEC220D930700E06609 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				EC62AAF3220D930A00E06609 /* LaunchScreen.storyboard */,
 				EC5E904F2212D3FC001A4CDA /* ListDetailViewController.swift */,
 				EC62AAEE220D930700E06609 /* Main.storyboard */,
+				EC5E905322130D44001A4CDA /* IconPickerViewController.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				EC62AAED220D930700E06609 /* ChecklistViewController.swift in Sources */,
 				EC5E90502212D3FC001A4CDA /* ListDetailViewController.swift in Sources */,
 				EC62AB1B220DB96200E06609 /* ItemDetailViewController.swift in Sources */,
+				EC5E905422130D44001A4CDA /* IconPickerViewController.swift in Sources */,
 				EC5E904E2212C3FD001A4CDA /* AllListsViewController.swift in Sources */,
 				ECA13A222211AC7A0022C386 /* Checklist.swift in Sources */,
 				EC5E90522212EE4E001A4CDA /* DataModel.swift in Sources */,
