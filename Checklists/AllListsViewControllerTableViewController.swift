@@ -126,5 +126,20 @@ class AllListsViewControllerTableViewController: UITableViewController, ListDeta
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
-
+    
+    override func tableView(_ tableView: UITableView,
+                               accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let controller = storyboard!.instantiateViewController(
+            withIdentifier: "ListDetailViewController")
+            as! ListDetailViewController
+        controller.delegate = self
+        
+        let checklist = lists[indexPath.row]
+        controller.checklistToEdit = checklist
+        
+        navigationController?.pushViewController(controller,
+                                                 animated: true)
+    }
+    
 }
