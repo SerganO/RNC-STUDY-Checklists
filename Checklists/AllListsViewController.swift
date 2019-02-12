@@ -1,16 +1,17 @@
 //
-//  AllListsViewController.swift
+//  AllListsViewControllerTableViewController.swift
 //  Checklists
 //
-//  Created by Trainee on 2/11/19.
+//  Created by Trainee on 2/12/19.
 //  Copyright © 2019 Trainee. All rights reserved.
 //
 
 import UIKit
 
-class AllListsViewController: UITableViewController,
-ListDetailViewControllerDelegate {
-    // MARK:- List Detail View Controller Delegates
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
+
+   //Protocols function
+    
     func listDetailViewControllerDidCancel(
         _ controller: ListDetailViewController) {
         navigationController?.popViewController(animated: true)
@@ -41,13 +42,16 @@ ListDetailViewControllerDelegate {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    // Variables
     let cellIdentifier = "ChecklistCell"
     var lists = [Checklist]()
     
+    //Load
     override func viewDidLoad() {
         super.viewDidLoad()
-         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.register(UITableViewCell.self,forCellReuseIdentifier: cellIdentifier)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         var list = Checklist(name: "Birthdays")
         lists.append(list)
@@ -61,36 +65,11 @@ ListDetailViewControllerDelegate {
         list = Checklist(name: "To Do")
         lists.append(list)
         
-}
-
-
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
-    }
-
-   
-    
-    
-    override func tableView(_ tableView: UITableView,
-                               cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
-       let cell = tableView.dequeueReusableCell(
-           withIdentifier: cellIdentifier, for: indexPath)
-        
-            //let cell = makeCell(for: tableView)
-            let checklist = lists[indexPath.row]
-            cell.textLabel!.text = checklist.name
-            cell.accessoryType = .detailDisclosureButton
-            
-            return cell
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                               didSelectRowAt indexPath: IndexPath) {
-        let checklist = lists[indexPath.row]
-        performSegue(withIdentifier: "ShowChecklist", sender: checklist)
+        for list in lists {
+            let item = ChecklistItem()
+            item.text = "Item for \(list.name)"
+            list.items.append(item)
+        }
     }
     
     // MARK:- Navigation
@@ -105,7 +84,42 @@ ListDetailViewControllerDelegate {
             as! ListDetailViewController
         controller.delegate = self
         }
+    
+    }
+    
+    // MARK: - Table view data source
+
+    /*override func numberOfSections(in tableView: UITableView) -> Int {
+        return 0
+    }*/
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lists.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
+        
+        /*let cell = tableView.dequeueReusableCell(
+         withIdentifier: cellIdentifier, for: indexPath)
+         cell.textLabel!.text = "List \(indexPath.row)"
+         return cell*/
+        
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: cellIdentifier, for: indexPath)
+        let checklist = lists[indexPath.row]
+        cell.textLabel!.text = checklist.name
+        cell.accessoryType = .detailDisclosureButton
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath)
+    {
+        let checklist = lists[indexPath.row]
+        performSegue(withIdentifier: "ShowChecklist", sender: checklist)
     }
     
     override func tableView(
@@ -117,7 +131,6 @@ ListDetailViewControllerDelegate {
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
     }
-    
     
     override func tableView(_ tableView: UITableView,
                                accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -133,5 +146,5 @@ ListDetailViewControllerDelegate {
         navigationController?.pushViewController(controller,
                                                  animated: true)
     }
-
+    
 }
