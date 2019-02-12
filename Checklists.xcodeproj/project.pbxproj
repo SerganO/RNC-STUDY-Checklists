@@ -110,17 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				EC5E904D2212C3FD001A4CDA /* AllListsViewController.swift */,
-				EC5E904F2212D3FC001A4CDA /* ListDetailViewController.swift */,
-				ECA13A212211AC7A0022C386 /* Checklist.swift */,
 				EC62AAEA220D930700E06609 /* AppDelegate.swift */,
-				EC62AAEC220D930700E06609 /* ChecklistViewController.swift */,
-				EC62AAEE220D930700E06609 /* Main.storyboard */,
-				EC62AB1A220DB96200E06609 /* ItemDetailViewController.swift */,
 				EC62AAF1220D930A00E06609 /* Assets.xcassets */,
-				EC62AAF3220D930A00E06609 /* LaunchScreen.storyboard */,
-				EC62AAF6220D930A00E06609 /* Info.plist */,
+				ECA13A212211AC7A0022C386 /* Checklist.swift */,
 				EC62AB18220DA93F00E06609 /* ChecklistItem.swift */,
+				EC62AAEC220D930700E06609 /* ChecklistViewController.swift */,
 				EC5E90512212EE4E001A4CDA /* DataModel.swift */,
+				EC62AAF6220D930A00E06609 /* Info.plist */,
+				EC62AB1A220DB96200E06609 /* ItemDetailViewController.swift */,
+				EC62AAF3220D930A00E06609 /* LaunchScreen.storyboard */,
+				EC5E904F2212D3FC001A4CDA /* ListDetailViewController.swift */,
+				EC62AAEE220D930700E06609 /* Main.storyboard */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
