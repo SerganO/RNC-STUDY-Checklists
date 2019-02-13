@@ -38,9 +38,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
 
     @IBOutlet weak var textField: UITextField!
-    // MARK: - Table view data source
-
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    
+    
     
     weak var delegate: ItemDetailViewControllerDelegate?
     
