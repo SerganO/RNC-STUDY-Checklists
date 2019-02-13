@@ -195,26 +195,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="252" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✔️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgj-Dw-8JZ">
-                                            <rect key="frame" x="16" y="6" width="26" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✔️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgj-Dw-8JZ">
+                                            <rect key="frame" x="16" y="8.5" width="26" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="4G4-xJ-s2m"/>
+                                                <constraint firstAttribute="width" constant="26" id="oEP-AT-fsF"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOe-G4-RIN">
-                                            <rect key="frame" x="46" y="11" width="178" height="22"/>
+                                            <rect key="frame" x="50" y="11.5" width="174" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="hgj-Dw-8JZ" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leading" constant="16" id="5Me-47-G7x"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="NOe-G4-RIN" secondAttribute="trailing" constant="20" id="5mE-TX-UsJ"/>
-                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leadingMargin" constant="30" id="7KC-7b-Vn8"/>
-                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="top" secondItem="m03-C8-mG9" secondAttribute="topMargin" id="M9z-Ra-ZPh"/>
-                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="bottom" secondItem="m03-C8-mG9" secondAttribute="bottomMargin" id="eYg-Ml-MQ0"/>
-                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="m03-C8-mG9" secondAttribute="leadingMargin" constant="30" id="vLS-Wv-G91"/>
+                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="leading" secondItem="hgj-Dw-8JZ" secondAttribute="trailing" constant="8" id="C9s-Vk-svh"/>
+                                        <constraint firstItem="NOe-G4-RIN" firstAttribute="centerY" secondItem="m03-C8-mG9" secondAttribute="centerY" id="iza-CM-CZa"/>
+                                        <constraint firstItem="hgj-Dw-8JZ" firstAttribute="centerY" secondItem="m03-C8-mG9" secondAttribute="centerY" id="jZI-jk-ol0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
