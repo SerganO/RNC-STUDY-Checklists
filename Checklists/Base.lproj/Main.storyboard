@@ -86,15 +86,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="286" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-Ez-WUB">
-                                                    <rect key="frame" x="37" y="11" width="66" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-Ez-WUB">
+                                                    <rect key="frame" x="16" y="11" width="192" height="98"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yCI-8n-X0a">
+                                                    <rect key="frame" x="242" y="42" width="36" height="36"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="l0L-Ez-WUB" firstAttribute="bottom" secondItem="6dQ-JX-V5O" secondAttribute="bottomMargin" id="3M7-t8-AeM"/>
+                                                <constraint firstItem="l0L-Ez-WUB" firstAttribute="top" secondItem="6dQ-JX-V5O" secondAttribute="topMargin" id="4jb-s6-bPo"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yCI-8n-X0a" secondAttribute="bottom" constant="31" id="TJZ-fq-vUM"/>
+                                                <constraint firstItem="yCI-8n-X0a" firstAttribute="leading" secondItem="l0L-Ez-WUB" secondAttribute="trailing" constant="34" id="U8w-xv-r8G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="l0L-Ez-WUB" secondAttribute="trailing" constant="70" id="a3I-TR-8dV"/>
+                                                <constraint firstItem="yCI-8n-X0a" firstAttribute="top" secondItem="6dQ-JX-V5O" secondAttribute="topMargin" constant="31" id="nvf-pM-Hhh"/>
+                                                <constraint firstItem="l0L-Ez-WUB" firstAttribute="leading" secondItem="6dQ-JX-V5O" secondAttribute="leadingMargin" id="r4Y-0t-gfQ"/>
+                                                <constraint firstItem="yCI-8n-X0a" firstAttribute="trailing" secondItem="6dQ-JX-V5O" secondAttribute="trailingMargin" id="yjb-2j-hSO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="r6P-iF-JB9" kind="show" identifier="PickIcon" id="zPH-yY-wWF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -118,6 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="t4n-v0-bPT" id="X5p-Re-ZbJ"/>
+                        <outlet property="iconImage" destination="yCI-8n-X0a" id="nmZ-fz-D1S"/>
                         <outlet property="textField" destination="PUM-3H-wna" id="TbU-yw-SD2"/>
                     </connections>
                 </tableViewController>
@@ -125,7 +141,7 @@
             </objects>
             <point key="canvasLocation" x="78.75" y="558.80281690140851"/>
         </scene>
-        <!--Icon Picker View Controller-->
+        <!--Choose Icon-->
         <scene sceneID="EcL-Jj-bA0">
             <objects>
                 <tableViewController id="r6P-iF-JB9" customClass="IconPickerViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -157,6 +173,7 @@
                             <outlet property="delegate" destination="r6P-iF-JB9" id="esS-HR-e03"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Choose Icon" id="pG3-c4-wlb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gr4-c4-EOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
